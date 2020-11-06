@@ -697,20 +697,23 @@
     
   } ) 
 
- let tracks = []
-const fetchTrackList = fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/3515321/top?limit=50", {
+let _data = []
+const fetchTrackList = fetch("https://deezerdevs-deezer.p.rapidapi.com/album/165787232/tracks", {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "7058b459femsh8bbc3e5e09ff45bp16ae10jsnaa8151340a4c",
 		"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
 	}, 
 })
-
 .then((response) => response.json())
-.then((_tracks) => {
-        tracks=_tracks
-        console.log(tracks) 
-        let track = tracks.tracklist
+.then((data) => {
+     _data = data
+    console.log(_data)
+  _data.forEach((track, index) => {
+    let tracklists = track.album
+    console.log(tracklist)
+    
+        let parent = document.querySelectorAll(".tracklist-parent")
         let tracklist = `
         <div class="d-flex justify-content-between">
                   <div>
@@ -732,7 +735,7 @@ const fetchTrackList = fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/35
                     </svg>
                     <span class="title"
                       >Come Together <br />
-                      <span class="text-muted artist"> The Beatles </span>
+                      <span class="text-muted artist"> ${_data.tracklists}</span>
                       <span></span
                     ></span>
                   </div>
@@ -740,14 +743,25 @@ const fetchTrackList = fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/35
                 </div>
                 `
 
-            let parent = document.querySelectorAll(".tracklist-parent")
+            
           
             parent.innerHTML += tracklist
+  })
+
+  })
+  
+          
+}
+            
+          
+          
            
         
-    });  
     
-}
+      
+          
+    
+
 
   
   
