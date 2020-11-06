@@ -155,13 +155,20 @@
 }
 
 .btn-success {
-  margin-top: 113%;
-
+  margin-top: 100%;
   font-size: 1rem;
   padding: 0.5rem 2.5rem;
   border-radius: 500px;
   background-color: #1db954;
   z-index: 11;
+}
+
+#btn-play-tracks {
+  margin-top: 100%;
+  font-size: 1rem;
+  padding: 0.5rem 2.5rem;
+  border-radius: 500px;
+  background-color: #1db954;
 }
 
 @media (max-width: 400px) {
